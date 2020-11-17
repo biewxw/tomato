@@ -1,7 +1,44 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import GlobalStyle from './styles/global';
+
+import UISessionCounter from './components/UISessionCounter/index';
+import UISessionTimer from './components/UISessionTimer/index';
+
+const AppWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AppCard = styled.div`
+  width: fit-content;
+  height: fit-content;
+  padding: 25px 35px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+`;
 
 function App() {
-  return <div>hello world</div>
+  return (
+    <>
+      <GlobalStyle />
+      <AppWrapper>
+        <AppCard>
+          <UISessionTimer />
+          <UISessionCounter />
+        </AppCard>
+      </AppWrapper>
+    </>
+  )
 }
 
 export default App;
