@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from "react";
 
-import * as S from './styles';
+import { TomatoContext } from "../../context/TomatoContext";
+import { ReducerActionTypes } from "../../context/TomatoContext/reducers";
 
-interface IProps { }
+import * as S from "./styles";
 
-const UISessionCounter: React.FC<IProps> = () => {
-  const [sessionCounters, setSessionCounters] = useState([
-    { completed: false },
-    { completed: false },
-    { completed: false },
-    { completed: false },
-  ]);
+const UISessionCounter: React.FC = () => {
+  const { state, dispatch } = useContext(TomatoContext);
 
   return (
     <S.CounterWrapper>
-      { sessionCounters.map(({ completed }) => <S.CounterStatus completed={completed} />) }
+      {Array.from({ length: 4 }).map(() => {
+        return <S.CounterStatus completed={false} />;
+      })}
     </S.CounterWrapper>
   );
 };

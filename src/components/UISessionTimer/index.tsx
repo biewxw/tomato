@@ -1,9 +1,13 @@
-import React from 'react';
-import * as S from './styles'
+import React, { useContext } from "react";
 
-interface IProps {}
+import { TomatoContext } from "../../context/TomatoContext";
+import { ReducerActionTypes } from "../../context/TomatoContext/reducers";
 
-const UISessionTimer: React.FC<IProps> = () => {
+import * as S from "./styles";
+
+const UISessionTimer: React.FC = () => {
+  const { state, dispatch } = useContext(TomatoContext);
+
   return (
     <>
       <S.TimerDescription>Session in progress</S.TimerDescription>

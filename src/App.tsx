@@ -1,10 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import GlobalStyle from './styles/global';
+import GlobalStyle from "./styles/global";
 
-import UISessionCounter from './components/UISessionCounter/index';
-import UISessionTimer from './components/UISessionTimer/index';
+import UISessionCounter from "./components/UISessionCounter/index";
+import UISessionTimer from "./components/UISessionTimer/index";
+
+import { TomatoContextProvider } from "./context/TomatoContext";
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -31,14 +33,16 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <AppWrapper>
-        <AppCard>
-          <UISessionTimer />
-          <UISessionCounter />
-        </AppCard>
-      </AppWrapper>
+      <TomatoContextProvider>
+        <AppWrapper>
+          <AppCard>
+            <UISessionTimer />
+            <UISessionCounter />
+          </AppCard>
+        </AppWrapper>
+      </TomatoContextProvider>
     </>
-  )
+  );
 }
 
 export default App;
