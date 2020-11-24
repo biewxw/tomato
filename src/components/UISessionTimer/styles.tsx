@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { styleColors, styleTypo } from '../../styles/tokens';
+import { styleColors, styleTypo } from "../../styles/tokens";
 
 const { colorRedPrimary } = styleColors;
 const { typoHeadPrimary, typoHeadSecondary } = styleTypo;
@@ -17,7 +17,8 @@ export const TimerValue = styled.h1`
   font-size: ${typoHeadPrimary};
   font-weight: 600;
   line-height: 40px;
-  margin: 12px 0px;
+  margin-top: 12px;
+  margin-bottom: 18px;
 `;
 
 export const TimerDescription = styled.h3`

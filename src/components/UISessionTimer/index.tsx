@@ -1,17 +1,22 @@
 import React, { useContext } from "react";
-
+import { useTimer } from "react-timer-hook";
 import { TomatoContext } from "../../context/TomatoContext";
-import { ReducerActionTypes } from "../../context/TomatoContext/reducers";
 
 import * as S from "./styles";
 
 const UISessionTimer: React.FC = () => {
-  const { state, dispatch } = useContext(TomatoContext);
+  const { state } = useContext(TomatoContext);
+  const { minutes, seconds } = useTimer({
+    expiryTimestamp: new Date().setSeconds(new Date().getSeconds() + 1500),
+  });
 
   return (
     <>
       <S.TimerDescription>Session in progress</S.TimerDescription>
-      <S.TimerValue>22:30</S.TimerValue>
+      <S.TimerValue>
+        {minutes < 10 ? "0" + minutes : minutes}:
+        {seconds < 10 ? "0" + seconds : seconds}
+      </S.TimerValue>
     </>
   );
 };
